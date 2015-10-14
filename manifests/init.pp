@@ -1,6 +1,6 @@
 # == Class: telegraf
 #
-# Install the InfluxDBś telegraf
+# Install the InfluxDB telegraf
 #
 # === Parameters
 #
