@@ -45,6 +45,7 @@ class telegraf (
   $outputs_influxdb_database = 'telegraf',
   $outputs_influxdb_username = 'telegraf',
   $outputs_influxdb_password = 'metricsmetricsmetricsmetrics',
+  $cfg                       = {},
 
   # [tags] section of telegraf.conf
   $tags                      = undef,

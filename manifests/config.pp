@@ -8,9 +8,10 @@
 # DO NO CALL DIRECTLY
 class telegraf::config {
 
+  $cfg = $::telegraf::cfg
   file { '/etc/opt/telegraf/telegraf.conf':
     ensure  => file,
-    content => template('telegraf/telegraf.conf.erb'),
+    content => inline_template("<%= require 'toml'; TOML::Generator.new(@cfg).body %>\n"),
     mode    => '0640',
     owner   => 'root',
     group   => 'telegraf',
