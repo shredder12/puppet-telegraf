@@ -31,7 +31,6 @@ class telegraf::service {
     ensure     => 'running',
     enable     => true,
     hasrestart => true,
-    status     => '/usr/bin/pgrep -u telegraf -f "/opt/telegraf/telegraf "',
     provider   => $provider
   }
 }
