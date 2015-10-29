@@ -19,10 +19,19 @@ class telegraf::service {
       $my_service_ensure = 'running'
     }
   }
+  case $::lsbdistcodename {
+    'jessie': {
+      $provider = 'service'
+    }
+    default: {
+      $provider = undef
+    }
+  }
   service { 'telegraf':
     ensure     => 'running',
     enable     => true,
     hasrestart => true,
-    status     => '/usr/bin/pgrep -u telegraf -f "/opt/telegraf/telegraf "'
+    status     => '/usr/bin/pgrep -u telegraf -f "/opt/telegraf/telegraf "',
+    provider   => $provider
   }
 }
