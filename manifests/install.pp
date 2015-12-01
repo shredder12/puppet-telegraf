@@ -20,7 +20,7 @@ class telegraf::install {
     }
   }
 
-  if ((!$telegraf::install_from_repository) and ($my_package_ensure =~ /present|installed/ )) {
+  if ((!$telegraf::install_from_repository) and ($my_package_ensure =~ /present|installed|latest/ )) {
     # package source and provider
     case $::osfamily {
       'Debian': {
