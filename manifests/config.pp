@@ -9,7 +9,7 @@
 class telegraf::config {
 
   $cfg = $::telegraf::cfg
-  file { '/etc/opt/telegraf/telegraf.conf':
+  file { $telegraf::config_file:
     ensure  => file,
     content => inline_template("<%= require 'toml'; TOML::Generator.new(@cfg).body %>\n"),
     mode    => '0640',
