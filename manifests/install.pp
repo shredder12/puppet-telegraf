@@ -28,7 +28,7 @@ class telegraf::install {
           /386/   => "telegraf_${telegraf::version}_i386.deb",
           default => "telegraf_${telegraf::version}_amd64.deb",
         }
-        $package_source = "http://get.influxdb.org/telegraf/${package_source_name}"
+        $package_source = "https://dl.influxdata.com/telegraf/releases/${package_source_name}"
         wget::fetch { 'telegraf':
           source      => $package_source,
           destination => "/tmp/${package_source_name}"
