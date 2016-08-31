@@ -8,6 +8,12 @@
 # DO NO CALL DIRECTLY
 class telegraf::config {
 
+  file { '/etc/opt/telegraf':
+    ensure => directory,
+    owner   => 'root',
+    group   => 'telegraf',
+  }
+
   $cfg = $::telegraf::cfg
   file { $telegraf::config_file:
     ensure  => file,
