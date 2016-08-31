@@ -20,7 +20,7 @@ class telegraf::service {
     }
   }
   case $::lsbdistcodename {
-    'jessie': {
+    'jessie', 'xenial': {
       $provider = 'systemd'
     }
     default: {
